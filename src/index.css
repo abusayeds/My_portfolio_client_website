@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer component {
+  .IconClass {
+    @apply bg-opacity-25 text-gray-200 md:text-4xl text-2xl rounded-md shadow-shadowOne hover:bg-opacity-40 hover:-translate-y-1 transition-all hover:text-designColor cursor-pointer duration-500;
+  }
+  .cotactIcon {
+    @apply w-16  bg-black bg-opacity-25 text-gray-200 text-2xl inline-flex items-center justify-center rounded-md shadow-shadowOne hover:bg-opacity-40 hover:-translate-y-1 transition-all hover:text-designColor cursor-pointer duration-500;
+  }
+  .cotactInput {
+    @apply w-full h-12 rounded-lg border-b-[1px] border-b-gray-600 bg-[#191b1e] text-lightText px-4 active:outline-none focus-visible:outline-designColor outline-none focus-visible:border-b-transparent duration-300;
+  }
+  .resumeLi {
+    @apply w-full md:h-20 h-10 rounded bg-black bg-opacity-25 md:text-xl text-center text-gray-300 flex  justify-center cursor-pointer hover:bg-opacity-40 duration-300 items-center border-[1px];
+  }
+  .bgOpacity {
+    @apply bg-black bg-opacity-40;
+  }
+}
+.active {
+  color: white;
+}
