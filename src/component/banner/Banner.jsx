@@ -1,11 +1,22 @@
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
-
-import { BsArrowBarDown, BsGithub } from "react-icons/bs";
-import { resume } from "../../../config";
+import { SiReaddotcv } from "react-icons/si";
+import { BsGithub } from "react-icons/bs";
+import { fetchCV } from "../resume/Cv";
+import { useState } from "react";
 
 const Banner = () => {
+  const [cvLink, setCvLink] = useState("");
+
+  const getCvData = async () => {
+    const data = await fetchCV();
+    if (data) {
+      setCvLink(data?.cv);
+    }
+  };
+  getCvData();
+
   const [text] = useTypewriter({
     words: [
       " MERN Stack Developer.",
@@ -48,7 +59,7 @@ const Banner = () => {
               </h3>
             </div>
 
-            <div className=" flex gap-5">
+            <div className=" flex gap-5 items-center">
               <a
                 href="https://www.facebook.com/profile.php?id=100074503997052"
                 target="blank"
@@ -70,13 +81,10 @@ const Banner = () => {
                   <BsGithub />
                 </span>
               </a>
-              <a
-                href={resume}
-                target="_blank"
-                className=" text-xs  md:text-base   p-2 bg-designColor   text-white  rounded flex items-center justify-center font-titlefont gap-2"
-              >
-                Resume
-                <BsArrowBarDown className=" animate-bounce  duration-500"></BsArrowBarDown>
+              <a href={cvLink} target="_blank">
+                <span className="IconClass">
+                  <SiReaddotcv />
+                </span>
               </a>
             </div>
           </div>

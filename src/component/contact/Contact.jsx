@@ -3,7 +3,6 @@ import { images } from "../../assets/images";
 import Title from "../layout/Title";
 import { useState } from "react";
 import { BsArrowBarDown, BsGithub } from "react-icons/bs";
-import { resume } from "../../../config";
 
 const pdf = "http://localhost:5173/resume.pdf";
 const Contact = () => {
@@ -108,14 +107,6 @@ const Contact = () => {
                       </span>
                     </a>
                   </div>
-                  <a
-                    target="_blank"
-                    href={resume}
-                    className=" text-xs md:text-1xl  md:px-3 p-2 md:py-2  bg-designColor  opacity-75 hover:opacity-100 text-white  rounded flex items-center justify-center font-titlefont gap-2"
-                  >
-                    RESUME
-                    <BsArrowBarDown className=" animate-bounce  duration-500"></BsArrowBarDown>
-                  </a>
                 </div>
               </div>
             </div>

@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import AllBlog from "../blogs/AllBlog";
 import AllProject from "../../component/projects/AllProject";
+import CvUpdate from "../../component/resume/CvUpdate";
 
 const Dashboard = () => {
   const [blog, setBlog] = useState(false);
+  const [cv, setCv] = useState(false);
   const [allBlog, setAllBlog] = useState(false);
   const [allProject, setAllProject] = useState(false);
   const [project, setProject] = useState(true);
@@ -29,6 +31,7 @@ const Dashboard = () => {
               setAllBlog(false);
               setProject(false);
               setBlog(false);
+              setCv(false);
             }}
             className=" rounded-md shadow-shadowOne p-2"
           >
@@ -40,6 +43,7 @@ const Dashboard = () => {
               setAllProject(false);
               setProject(false);
               setBlog(false);
+              setCv(false);
             }}
             className=" rounded-md shadow-shadowOne p-2"
           >
@@ -51,6 +55,7 @@ const Dashboard = () => {
               setAllBlog(false);
               setBlog(false);
               setAllProject(false);
+              setCv(false);
             }}
             className=" rounded-md shadow-shadowOne p-2"
           >
@@ -62,10 +67,23 @@ const Dashboard = () => {
               setAllProject(false);
               setProject(false);
               setAllBlog(false);
+              setCv(false);
             }}
             className=" rounded-md shadow-shadowOne p-2"
           >
             Create blog
+          </button>
+          <button
+            onClick={() => {
+              setBlog(false);
+              setAllProject(false);
+              setProject(false);
+              setAllBlog(false);
+              setCv(true);
+            }}
+            className=" rounded-md shadow-shadowOne p-2"
+          >
+            Updata CV
           </button>
           <button
             onClick={() => hendleLogout()}
@@ -80,6 +98,7 @@ const Dashboard = () => {
         {blog && <CreateBlog />}
         {allBlog && <AllBlog />}
         {allProject && <AllProject />}
+        {cv && <CvUpdate />}
       </section>
     </main>
   );
