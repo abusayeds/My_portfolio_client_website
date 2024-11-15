@@ -1,30 +1,34 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
+import { baseApi } from "../../../config";
+import axios from "axios";
 
 const CvUpdate = () => {
-  const [cv, setCv] = useState(""); // Example input field for email
+  const [cv, setCv] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
   const [error, setError] = useState(null);
 
   const handleUpdateCV = async () => {
     try {
+      const { data: resume } = await axios.get(`${baseApi}/get-resume`);
+
       const response = await fetch(
-        "http://localhost:5000/api/v1/update-cv/6734a40dd4264c1eb95433a9",
+        `${baseApi}/update-resume/${resume?.data[0]._id}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ cv: cv }), // Sending name and email as body data
+          body: JSON.stringify({ resume: cv }),
         }
       );
 
-      if (!response.ok) {
-        toast.message("cv update done ! ");
-      }
-
       const data = await response.json();
-      setResponseMessage(data.message || "CV updated successfully!");
+
+      if (data?.success) {
+        toast?.message("CV updated successfully!");
+        setResponseMessage("CV updated successfully!");
+      }
     } catch (error) {
       setError(error.message);
     }

@@ -25,7 +25,8 @@ export const fetchCV = async () => {
     return null;
   }
 };
-
+const data = await fetchCV();
+export const cv = data ? data?.cv : null;
 const Cv = () => {
   const [cvLink, setCvLink] = useState<string | undefined>(undefined);
   const [lastUpdated, setLastUpdated] = useState<string | undefined>(undefined);

@@ -3,20 +3,9 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { SiReaddotcv } from "react-icons/si";
 import { BsGithub } from "react-icons/bs";
-import { fetchCV } from "../resume/Cv";
-import { useState } from "react";
+import { cv } from "../resume/Cv";
 
 const Banner = () => {
-  const [cvLink, setCvLink] = useState("");
-
-  const getCvData = async () => {
-    const data = await fetchCV();
-    if (data) {
-      setCvLink(data?.cv);
-    }
-  };
-  getCvData();
-
   const [text] = useTypewriter({
     words: [
       " MERN Stack Developer.",
@@ -81,7 +70,7 @@ const Banner = () => {
                   <BsGithub />
                 </span>
               </a>
-              <a href={cvLink} target="_blank">
+              <a href={cv} target="_blank">
                 <span className="IconClass">
                   <SiReaddotcv />
                 </span>
